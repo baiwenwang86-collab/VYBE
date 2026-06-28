@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VYBE Records - Feel the Groove Through Time</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Your Name">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a0f3d;
+            color: #ffffff;
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #2d1b69, #1a0f3d) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .navbar-brand {
+            color: #ff69b4 !important;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            color: #ffffff !important;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #00ffff !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(0deg, rgba(26, 15, 61, 0.7), rgba(45, 27, 105, 0.5)), 
+                        url('assets/img/holographic-cd.jpg') center/cover;
+            padding: 200px 15px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-container {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            color: #ff69b4;
+            font-family: 'Georgia', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero a {
+            text-decoration: none;
+            background-color: #00ffff;
+            color: #1a0f3d;
+            padding: 15px 40px;
+            display: inline-block;
+            text-transform: uppercase;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .hero a:hover {
+            background-color: #ff69b4;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        /* Section Styling with gradient */
+        .section-title {
+            background: linear-gradient(45deg, #ff69b4, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 50px 0 30px 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        /* Card Styling with hover effects */
+        .card {
+            background-color: #2d1b69;
+            border: 2px solid #ff69b4;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
+        }
+        
+        /* Logo card special styling with hover rotation */
+        .logo-card {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        
+        .logo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-card:hover img {
+            transform: rotate(3deg) scale(1.05);
+        }
+        
+        .card-title {
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .card-text {
+            color: #ffffff;
+        }
+        
+        .card-horizontal {
+            display: flex;
+            flex: 1 1 auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        /* Gallery styling */
+        .gallery-item {
+            background-color: #2d1b69;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item img {
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .gallery-item h4 {
+            color: #ff69b4;
+        }
+        
+        /* Footer */
+        .page-footer {
+            background-color: #1a0f3d;
+            border-top: 2px solid #ff69b4;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .card-horizontal {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">VYBE Records</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Creative Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#video">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#modeling">Virtual Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+                <span class="navbar-text" style="color: #00ffff;">
+                    COMP5415 MDA
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1>VYBE Records</h1>
+            <p>Feel the Groove Through Time</p>
+            <p style="color: #00ffff; font-size: 1.1rem;">Est. 2025 • Sydney, AU</p>
+            <a href="#portfolio">Let's Start!</a>
+        </div>
+    </section>
+
+    <!-- Creative Works Showcase -->
+    <section id="portfolio" style="background-color: #2d1b69; padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Creative Works</h2>
+            
+            <!-- Logo Display - Small Size -->
+            <div class="row justify-content-center" style="margin-bottom: 40px;">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="logo-card">
+                            <img src="assets/img/logo.jpg" alt="VYBE Logo">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Brand Identity</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Banner Display -->
+            <div class="row justify-content-center" style="margin-bottom: 40px;">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="assets/img/banner.jpg" class="card-img-top" alt="VYBE Banner">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Campaign Design</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Poster Display -->
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="assets/img/poster.jpg" class="card-img-top" alt="VYBE Poster">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Event Poster</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Experience -->
+    <section id="video" style="background-color: #1a0f3d; padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">R&B Store Experience</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-body" style="padding: 0;">
+                            <video controls style="width: 100%; border-radius: 15px;">
+                                <source src="assets/video/vybe-store-tour.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p style="text-align: center; color: #ffffff; margin-top: 15px; padding: 0 20px 20px 20px;">
+                                Virtual tour through VYBE Records
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Modeling Gallery -->
+    <section id="modeling" style="background-color: #2d1b69; padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">R&B Virtual Store Showcase</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="gallery-item">
+                        <img src="assets/img/whole.jpg" alt="3D Store Overview" class="img-fluid">
+                        <h4>Store Overview</h4>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="gallery-item">
+                        <img src="assets/img/vinyl.jpg" alt="Vintage Vinyl Section" class="img-fluid">
+                        <h4>Vintage Zone</h4>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="gallery-item">
+                        <img src="assets/img/CD.jpg" alt="Modern CD Section" class="img-fluid">
+                        <h4>Modern Area</h4>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="gallery-item">
+                        <img src="assets/img/listening.jpg" alt="Central Listening Area" class="img-fluid">
+                        <h4>Listening Experience</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: #1a0f3d; padding: 80px 0;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body text-center" style="padding: 50px;">
+                            <h2 style="color: #ff69b4; margin-bottom: 30px;">VYBE Records Project</h2>
+                            <p style="font-size: 1.2rem; line-height: 1.8; color: #ffffff;">
+                                An immersive 3D experience celebrating R&B music culture through 
+                                the harmony of vintage and modern collections.
+                            </p>
+                            
+                            <div style="margin-top: 40px; padding: 30px; background-color: #2d1b69; border-radius: 15px;">
+                                <strong style="color: #00ffff;">Student:</strong> <span style="color: #ffffff;">Baiwen Wang</span><br>
+                                <strong style="color: #00ffff;">SID:</strong> <span style="color: #ffffff;">540942116</span><br>
+                                <strong style="color: #00ffff;">Course:</strong> <span style="color: #ffffff;">COMP5415 Multimedia Design & Authoring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer text-center">
+        <div class="container">
+            <div style="font-size: 1.5rem; margin-bottom: 20px; color: #ff69b4;">
+                VYBE Records
+            </div>
+            <p style="color: #ffffff;">Feel the Groove Through Time • Est. 2025 • Sydney, AU</p>
+            <div style="margin-top: 20px; color: #aaa;">
+                © 2025 VYBE Records Project | 
+                <a href="#" style="color: #00ffff; text-decoration: none;">COMP5415 MDA</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
